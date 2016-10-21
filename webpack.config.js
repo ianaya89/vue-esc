@@ -2,6 +2,8 @@ const path    = require('path');
 const env     = require('yargs').argv.mode;
 const webpack = require('webpack');
 
+const projectRoot = path.resolve(__dirname, '/');
+
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 const libraryName = 'vue-esc';

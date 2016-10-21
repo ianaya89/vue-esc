@@ -7,6 +7,12 @@
     "name": "Ignacio Anaya",
     "email": "ignacio.anaya89@gmail.com"
   },
+  "keywords": [
+    "vue-esc",
+    "vue",
+    "directive",
+    "escape"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=build",

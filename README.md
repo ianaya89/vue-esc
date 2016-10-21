@@ -1,6 +1,6 @@
 # vue-esc
 
-> Vue.js directive to add a document event listener on escape keyup.
+> :running: Vue.js directive to add a document event listener on escape keyup.
 
 ### Development Setup
 

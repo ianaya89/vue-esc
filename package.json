@@ -54,5 +54,6 @@
   },
   "pre-commit": [
     "eslint"
-  ]
+  ],
+    "repository": "ianaya89/vue-esc",
 }

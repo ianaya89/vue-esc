@@ -1,28 +1,24 @@
-export default {
-  action () {
-    console.log('Escaping...')
-  },
+const vueEsc = {}
 
-  callback (e) {
-    if (e.keyCode === 27) {
-      this.action && this.action()
-    }
-  },
-
-  bind () {
-    this.bindedCallback = this.callback.bind(this)
-    document.addEventListener('keyup', this.bindedCallback, false)
-  },
-
-  update (val) {
-    if (typeof val !== 'function') {
-      throw new Error(`The given argument of v-esc: "${val}", is not a function`)
-    }
-
-    this.action = val
-  },
-
-  unbind () {
-    document.removeEventListener('keyup', this.bindedCallback, false)
+vueEsc.onEvent = function (event) {
+  if (event.keyCode === 27) {
+    vueEsc.cb && vueEsc.cb(event)
   }
+}
+
+vueEsc.bind = function (el) {
+  vueEsc.onEventBound = vueEsc.onEvent.bind({ el })
+  document.addEventListener('keyup', vueEsc.onEventBound)
+}
+
+vueEsc.update = function (el, binding) {
+  if (typeof binding.value !== 'function') {
+    throw new Error('Argument must be a function')
+  }
+
+  vueEsc.cb = binding.value
+}
+
+vueEsc.unbind = function () {
+  document.removeEventListener('keyup', vueEsc.onEventBound)
 }

@@ -1,24 +1,15 @@
+const isProd = process.env.ENV === 'prod'
 const path = require('path')
-const env = require('yargs').argv.mode
-const webpack = require('webpack')
-
-const projectRoot = path.resolve(__dirname, '/')
-
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 
 const libraryName = 'vue-esc'
-
-const plugins = []
-let outputFile = `${libraryName}.js`
-
-if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }))
-  outputFile = `${libraryName}.min.js`
-}
+const projectRoot = path.resolve(__dirname, '/')
+const outputFile = isProd ? `${libraryName}.min.js` : `${libraryName}.js`
 
 const config = {
   entry: `${__dirname}/src/index.js`,
-  devtool: 'source-map',
+
+  devtool: isProd ? 'source-map' : false,
+
   output: {
     path: `${__dirname}/dist`,
     filename: outputFile,
@@ -26,29 +17,24 @@ const config = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+
   module: {
-    preLoaders: [
+    rules: [
       {
+        enforce: 'pre',
         test: /(\.jsx|\.js)$/,
-        loader: 'eslint',
+        loader: 'eslint-loader',
         include: projectRoot,
         exclude: /(node_modules|bower_components)/
-      }
-    ],
-    loaders: [
+      },
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: projectRoot,
         exclude: /(node_modules|bower_components)/
       }
     ]
-  },
-  resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.js']
-  },
-  plugins
+  }
 }
 
 module.exports = config

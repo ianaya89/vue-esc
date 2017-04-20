@@ -1,4 +1,5 @@
 # vue-esc
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a34ce7d9829c4124823cba10d24ad941)](https://www.codacy.com/app/FindEarth/vue-esc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ianaya89/vue-esc&amp;utm_campaign=Badge_Grade)
 [![bitHound Overall Score](https://www.bithound.io/github/ianaya89/vue-esc/badges/score.svg)](https://www.bithound.io/github/ianaya89/vue-esc)
 [![bitHound Dev Dependencies](https://www.bithound.io/github/ianaya89/vue-esc/badges/devDependencies.svg)](https://www.bithound.io/github/ianaya89/vue-esc/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/ianaya89/vue-esc/badges/code.svg)](https://www.bithound.io/github/ianaya89/vue-esc)

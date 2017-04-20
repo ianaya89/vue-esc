@@ -22,3 +22,5 @@ vueEsc.update = function (el, binding) {
 vueEsc.unbind = function () {
   document.removeEventListener('keyup', vueEsc.onEventBound)
 }
+
+export default vueEsc

@@ -2,6 +2,10 @@
 
 > :running: Vue.js directive to add a document event listener on escape keyup.
 
+### Support
+- Vue.js 2 => vue-esc@>=2.0.0
+- Vue.js 1 => vue-esc@1.0.0
+
 ### Install
 `npm i -S vue-esc`
 
@@ -58,7 +62,6 @@ $ npm run build
 
 ## Style
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
-
 
 ___
 **This project was built with [yeoman](http://yeoman.io/) and [generator-vue-component](https://github.com/ianaya89/generator-vue-component) ❤️**

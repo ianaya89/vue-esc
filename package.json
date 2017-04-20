@@ -1,12 +1,9 @@
 {
   "name": "vue-esc",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": ":running: Vue.js directive to add a document event listener on escape keyup.",
   "main": "dist/vue-esc.min.js",
-  "author": {
-    "name": "Ignacio Anaya",
-    "email": "ignacio.anaya89@gmail.com"
-  },
+  "author": "Ignacio Anaya <ignacio.anaya89@gmail.com>",
   "repository": "ianaya89/vue-esc",
   "keywords": [
     "vue-esc",
@@ -45,20 +42,20 @@
     "eslint"
   ],
   "jest": {
-   "collectCoverage": true,
-   "coverageThreshold": {
-     "global": {
-       "branches": 70,
-       "functions": 70,
-       "lines": 70,
-       "statements": 70
-     }
-   },
-   "collectCoverageFrom": [
-     "src/**"
-   ],
-   "roots": [
-     "test/"
-   ]
- }
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**"
+    ],
+    "roots": [
+      "test/"
+    ]
+  }
 }

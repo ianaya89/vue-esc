@@ -36,8 +36,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "pre-commit": "^1.2.2",
-    "webpack": "^2.4.1",
-    "yargs": "7.1.0"
+    "webpack": "^2.4.1"
   },
   "pre-commit": [
     "eslint"

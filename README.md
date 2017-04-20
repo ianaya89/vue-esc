@@ -1,4 +1,7 @@
 # vue-esc
+[![bitHound Overall Score](https://www.bithound.io/github/ianaya89/vue-esc/badges/score.svg)](https://www.bithound.io/github/ianaya89/vue-esc)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/ianaya89/vue-esc/badges/devDependencies.svg)](https://www.bithound.io/github/ianaya89/vue-esc/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/ianaya89/vue-esc/badges/code.svg)](https://www.bithound.io/github/ianaya89/vue-esc)
 
 > :running: Vue.js directive to add a document event listener on escape keyup.
 

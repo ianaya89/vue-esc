@@ -9,13 +9,11 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 const libraryName = 'vue-esc'
 
 const plugins = []
-let outputFile
+let outputFile = `${libraryName}.js`
 
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }))
   outputFile = `${libraryName}.min.js`
-} else {
-  outputFile = `${libraryName}.js`
 }
 
 const config = {

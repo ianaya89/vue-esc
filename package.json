@@ -12,6 +12,7 @@
     "escape"
   ],
   "license": "MIT",
+
   "scripts": {
     "build": "ENV=prod webpack --progress --colors -p",
     "build:dev": "ENV=dev webpack --progress --colors",
@@ -22,6 +23,7 @@
     "eslint:fix": "eslint . --fix .js",
     "prepublish": "npm run build && npm run build:dev"
   },
+
   "devDependencies": {
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.2",
@@ -38,9 +40,11 @@
     "pre-commit": "^1.2.2",
     "webpack": "^2.4.1"
   },
+
   "pre-commit": [
     "eslint"
   ],
+
   "jest": {
     "collectCoverage": true,
     "coverageThreshold": {
@@ -57,5 +61,10 @@
     "roots": [
       "test/"
     ]
+  },
+
+  "engines": {
+    "node": ">= 6",
+    "node": ">= 3"
   }
 }

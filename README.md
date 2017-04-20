@@ -2,17 +2,16 @@
 
 > :running: Vue.js directive to add a document event listener on escape keyup.
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
-
-
-### Installation
+### Install
 `npm i -S vue-esc`
 
-### Usage
+`yarn add vue-esc`
+
+### Use
 
 `main.js`
 ```javascript
-import Vue    from 'vue';
+import Vue from 'vue';
 import VueEsc from 'vue-esc';
 
 Vue.use(VueEsc);
@@ -25,32 +24,25 @@ Vue.use(VueEsc);
     name: 'Component',
 
     methods: {
-      escape() {
-        console.log('Escaping...');
+      escape(event) {
+        console.log('Esc key pressed.', `Event: ${event}`);
       }
     }
   };
 </script>
 
-<template lang="pug">
-  div(v-esc='escape')   
+<template>
+  <div v-esc="escape"></div>
 </template>
 ```
 
-### Development Setup
+## License
+[MIT License](https://github.com/ndelvalle/vue-esc/blob/master/LICENSE)
 
-```bash
-# install dependencies
-$ npm install
 
-# dev mode
-$ npm run dev
+## Style
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
-# test
-$ npm run test
 
-# build
-$ npm run build
-```
-
+===
 **This project was built with [yeoman](http://yeoman.io/) and [generator-vue-component](https://github.com/ianaya89/generator-vue-component) ❤️**

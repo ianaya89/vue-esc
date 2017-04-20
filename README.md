@@ -36,6 +36,22 @@ Vue.use(VueEsc);
 </template>
 ```
 
+### Development
+
+```bash
+# install dependencies
+$ npm install
+
+# dev mode
+$ npm run dev
+
+# test
+$ npm run test
+
+# build
+$ npm run build
+```
+
 ## License
 [MIT License](https://github.com/ndelvalle/vue-esc/blob/master/LICENSE)
 
@@ -44,5 +60,5 @@ Vue.use(VueEsc);
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
 
-===
+___
 **This project was built with [yeoman](http://yeoman.io/) and [generator-vue-component](https://github.com/ianaya89/generator-vue-component) ❤️**

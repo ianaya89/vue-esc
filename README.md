@@ -3,27 +3,32 @@
 > :running: Vue.js directive to add a document event listener on escape keyup.
 
 ### Support
-- Vue.js 2 => vue-esc@>=2.0.0
+- Vue.js 2 => vue-esc@>2.0.0
 - Vue.js 1 => vue-esc@1.0.0
 
 ### Install
-`npm i -S vue-esc`
-
-`yarn add vue-esc`
+```bash
+$ npm i -S vue-esc
+```
+```
+$ yarn add vue-esc
+```
 
 ### Use
 
-`main.js`
 ```javascript
+// main.js
+
 import Vue from 'vue';
 import VueEsc from 'vue-esc';
 
 Vue.use(VueEsc);
 ```
 
-`Component.vue`
 ```html
 <script>
+  // Component.vue
+
   export default {
     name: 'Component',
 

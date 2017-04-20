@@ -1,5 +1,5 @@
-import vueEsc  from './vue-esc';
+import vueEsc from './vue-esc'
 
 export default (Vue) => {
-  Vue.directive('esc', vueEsc);
-};
+  Vue.directive('esc', vueEsc)
+}

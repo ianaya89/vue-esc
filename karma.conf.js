@@ -1,32 +1,32 @@
-const path  = require('path');
-const merge = require('webpack-merge');
+const path = require('path')
+const merge = require('webpack-merge')
 
-const baseConfig = require('./webpack.config');
+const baseConfig = require('./webpack.config')
 
 const webpackConfig = merge(baseConfig, {
   devtool: '#inline-source-map'
-});
+})
 
-delete webpackConfig.entry;
+delete webpackConfig.entry
 
-webpackConfig.module.preLoaders = webpackConfig.module.preLoaders || [];
+webpackConfig.module.preLoaders = webpackConfig.module.preLoaders || []
 
 webpackConfig.module.preLoaders.unshift({
-  test   : /\.js$/,
-  loader : 'isparta',
+  test: /\.js$/,
+  loader: 'isparta',
   include: path.resolve('src/')
-});
+})
 
 webpackConfig.module.loaders.some((loader, i) => {
   if (loader.loader === 'babel') {
-    loader.include = path.resolve('test/');
-    return true;
+    loader.include = path.resolve('test/')
+    return true
   }
 
-  return false;
-});
+  return false
+})
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
     frameworks: ['mocha'],
@@ -40,11 +40,11 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_DISABLE,
     coverageReporter: {
-      dir      : './coverage',
+      dir: './coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' }
       ]
     }
-  });
-};
+  })
+}

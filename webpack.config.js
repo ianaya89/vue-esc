@@ -1,21 +1,21 @@
-const path    = require('path');
-const env     = require('yargs').argv.mode;
-const webpack = require('webpack');
+const path = require('path')
+const env = require('yargs').argv.mode
+const webpack = require('webpack')
 
-const projectRoot = path.resolve(__dirname, '/');
+const projectRoot = path.resolve(__dirname, '/')
 
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 
-const libraryName = 'vue-esc';
+const libraryName = 'vue-esc'
 
-const plugins = [];
-let outputFile;
+const plugins = []
+let outputFile
 
 if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = `${libraryName}.min.js`;
+  plugins.push(new UglifyJsPlugin({ minimize: true }))
+  outputFile = `${libraryName}.min.js`
 } else {
-  outputFile = `${libraryName}.js`;
+  outputFile = `${libraryName}.js`
 }
 
 const config = {
@@ -51,6 +51,6 @@ const config = {
     extensions: ['', '.js']
   },
   plugins
-};
+}
 
-module.exports = config;
+module.exports = config

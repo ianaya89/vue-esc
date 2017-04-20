@@ -1,5 +1,7 @@
 # vue-esc
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ianaya89/vue-esc.svg)](https://greenkeeper.io/)
+
 > :running: Vue.js directive to add a document event listener on escape keyup.
 
 ### Installation

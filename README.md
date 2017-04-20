@@ -12,7 +12,7 @@
 
 `main.js`
 ```javascript
-import Vue     from 'vue';
+import Vue    from 'vue';
 import VueEsc from 'vue-esc';
 
 Vue.use(VueI18n);

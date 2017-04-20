@@ -15,7 +15,6 @@
 import Vue    from 'vue';
 import VueEsc from 'vue-esc';
 
-Vue.use(VueI18n);
 Vue.use(VueEsc);
 ```
 
@@ -33,7 +32,7 @@ Vue.use(VueEsc);
   };
 </script>
 
-<template lang='pug'>
+<template lang="pug">
   div(v-esc='escape')   
 </template>
 ```

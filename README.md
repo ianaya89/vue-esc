@@ -3,7 +3,7 @@
 
 [![npm version](https://badge.fury.io/js/vue-esc.svg)](https://badge.fury.io/js/vue-esc)
 [![Codeship Status](https://img.shields.io/codeship/3738d4b0-082d-0135-8a91-66ea66f8c9cb/master.svg)](https://app.codeship.com/projects/213256)
-[![Coverage Status](https://coveralls.io/repos/github/ianaya89/vue-esc/badge.svg?branch=master)](https://coveralls.io/github/ianaya89/vue-esc?branch=master)generator-vue-component
+[![Coverage Status](https://coveralls.io/repos/github/ianaya89/vue-esc/badge.svg?branch=master)](https://coveralls.io/github/ianaya89/vue-esc?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a34ce7d9829c4124823cba10d24ad941)](https://www.codacy.com/app/FindEarth/vue-esc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ianaya89/vue-esc&amp;utm_campaign=Badge_Grade)
 [![bitHound Overall Score](https://www.bithound.io/github/ianaya89/vue-esc/badges/score.svg)](https://www.bithound.io/github/ianaya89/vue-esc)
 [![bitHound Dev Dependencies](https://www.bithound.io/github/ianaya89/vue-esc/badges/devDependencies.svg)](https://www.bithound.io/github/ianaya89/vue-esc/master/dependencies/npm)

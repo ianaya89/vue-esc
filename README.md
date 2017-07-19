@@ -71,7 +71,7 @@ $ npm run build
 ```
 
 ## License
-[MIT License](https://github.com/ndelvalle/vue-esc/blob/master/LICENSE)
+[MIT License](https://github.com/ianya89/vue-esc/blob/master/LICENSE)
 
 
 ## Style

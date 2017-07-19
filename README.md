@@ -1,7 +1,7 @@
 # vue-esc
 > :running: Vue.js directive to add a document event listener on escape keyup.
 
-[![Codeship Status](https://img.shields.io/codeship/3738d4b0-082d-0135-8a91-66ea66f8c9cb/master.svg)](https://app.codeship.com/projects/213256)
+[ ![Codeship Status for ianaya89/vue-esc](https://app.codeship.com/projects/3738d4b0-082d-0135-8a91-66ea66f8c9cb/status?branch=master)](https://app.codeship.com/projects/214292)
 [![Coverage Status](https://coveralls.io/repos/github/ianaya89/vue-esc/badge.svg?branch=master)](https://coveralls.io/github/ianaya89/vue-esc?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a34ce7d9829c4124823cba10d24ad941)](https://www.codacy.com/app/FindEarth/vue-esc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ianaya89/vue-esc&amp;utm_campaign=Badge_Grade)
 

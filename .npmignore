@@ -4,6 +4,4 @@ test
 .editorconfig
 .eslintingore
 .eslintrc
-circle.yml
-karma.conf.js
 webpack.config.js

@@ -6,21 +6,13 @@ describe('vue-esc => directive', () => {
   const div = document.createElement('div')
 
   afterEach(() => {
-    vueEsc.onEventBound = undefined
-    vueEsc.cb = undefined
+    vueEsc.cb.clear()
   })
 
-  it('has bind, update and unbind methods available', () => {
-    expect(typeof vueEsc.bind).toBe('function')
+  it('has onEvent, update and unbind methods available', () => {
+    expect(typeof vueEsc.onEvent).toBe('function')
     expect(typeof vueEsc.update).toBe('function')
     expect(typeof vueEsc.unbind).toBe('function')
-  })
-
-  describe('bind', () => {
-    it('defines onEventBound function', () => {
-      vueEsc.bind(div)
-      expect(typeof vueEsc.onEventBound).toBe('function')
-    })
   })
 
   describe('update', () => {
@@ -34,7 +26,34 @@ describe('vue-esc => directive', () => {
     it('saves the callback', () => {
       const cb = () => {}
       vueEsc.update(div, { value: cb })
-      expect(vueEsc.cb).toBe(cb)
+      expect(vueEsc.cb.size).toEqual(1)
+      expect(vueEsc.cb.has(div)).toBeTruthy()
+      expect(vueEsc.cb.get(div)).toBe(cb)
+    })
+
+    it('overrides an existing callback for the same element', () => {
+      const cb1 = () => {}
+      vueEsc.update(div, { value: cb1 })
+      expect(vueEsc.cb.size).toEqual(1)
+      expect(vueEsc.cb.get(div)).toBe(cb1)
+
+      const cb2 = () => {}
+      vueEsc.update(div, { value: cb2 })
+      expect(vueEsc.cb.size).toEqual(1)
+      expect(vueEsc.cb.get(div)).toBe(cb2)
+    })
+
+    it('registers callbacks from different elements', () => {
+      const cb1 = () => {}
+      vueEsc.update(div, { value: cb1 })
+      expect(vueEsc.cb.size).toEqual(1)
+      expect(vueEsc.cb.get(div)).toBe(cb1)
+
+      const div2 = document.createElement('div')
+      const cb2 = () => {}
+      vueEsc.update(div2, { value: cb2 })
+      expect(vueEsc.cb.size).toEqual(2)
+      expect(vueEsc.cb.get(div2)).toBe(cb2)
     })
   })
 
@@ -43,12 +62,33 @@ describe('vue-esc => directive', () => {
 
     it(message, () => {
       const event = { keyCode: 27 }
-      const onEventBound = vueEsc.onEvent.bind({ el: div })
 
-      vueEsc.cb = jest.fn()
+      const div2 = document.createElement('div')
+      const cb1 = jest.fn()
+      const cb2 = jest.fn()
 
-      onEventBound(event)
-      expect(vueEsc.cb).toHaveBeenCalledWith(event)
+      vueEsc.cb.set(div, cb1)
+      vueEsc.cb.set(div2, cb2)
+
+      vueEsc.onEvent(event)
+      expect(cb1).toHaveBeenCalledWith(event)
+      expect(cb2).toHaveBeenCalledWith(event)
+    })
+  })
+
+  describe('unbind', () => {
+    it('unregisters the callback', () => {
+      const div2 = document.createElement('div')
+      const cb1 = jest.fn()
+      const cb2 = jest.fn()
+
+      vueEsc.cb.set(div, cb1)
+      vueEsc.cb.set(div2, cb2)
+      expect(vueEsc.cb.size).toBe(2)
+
+      vueEsc.unbind(div)
+      expect(vueEsc.cb.size).toBe(1)
+      expect(vueEsc.cb.has(div)).toBeFalsy()
     })
   })
 })

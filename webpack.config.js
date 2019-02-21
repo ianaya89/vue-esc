@@ -1,18 +1,13 @@
-const isProd = process.env.ENV === 'prod'
 const path = require('path')
 
 const libraryName = 'vue-esc'
 const projectRoot = path.resolve(__dirname, '/')
-const outputFile = isProd ? `${libraryName}.min.js` : `${libraryName}.js`
 
 const config = {
   entry: `${__dirname}/src/index.js`,
 
-  devtool: isProd ? 'source-map' : false,
-
   output: {
     path: `${__dirname}/dist`,
-    filename: outputFile,
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -37,4 +32,16 @@ const config = {
   }
 }
 
-module.exports = config
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.output.filename = `${libraryName}.js`
+    config.devtool = false
+  }
+
+  if (argv.mode === 'production') {
+    config.output.filename = `${libraryName}.min.js`
+    config.devtool = 'source-map'
+  }
+
+  return config
+}

@@ -96,6 +96,20 @@ describe('vue-esc => directive', () => {
     })
   })
 
+  describe('onEvent', () => {
+    it('ignores events which are not for the ESC key', () => {
+      const event = {
+        keyCode: 0
+      }
+
+      const cb1 = jest.fn()
+      vueEsc.cb.set(div, cb1)
+
+      vueEsc.onEvent(event)
+      expect(cb1).not.toHaveBeenCalledWith(event)
+    })
+  })
+
   describe('unbind', () => {
     it('unregisters the callback', () => {
       const div2 = document.createElement('div')

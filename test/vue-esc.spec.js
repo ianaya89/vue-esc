@@ -76,6 +76,26 @@ describe('vue-esc => directive', () => {
     })
   })
 
+  describe('onEvent', () => {
+    const message = 'it calls the callback with `this` set to the HTML element'
+
+    it(message, () => {
+      const event = {
+        keyCode: 27
+      }
+
+      const cb1 = jest.fn()
+
+      vueEsc.cb.set(div, cb1)
+
+      vueEsc.onEvent(event)
+      expect(cb1).toHaveBeenCalledWith(event)
+
+      const cb1ValueOfThis = cb1.mock.instances[0]
+      expect(cb1ValueOfThis).toBe(div)
+    })
+  })
+
   describe('unbind', () => {
     it('unregisters the callback', () => {
       const div2 = document.createElement('div')

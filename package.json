@@ -1,6 +1,6 @@
 {
   "name": "vue-esc",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": ":running: Vue.js directive to add a document event listener on escape keyup.",
   "main": "dist/vue-esc.min.js",
   "author": "Ignacio Anaya <ignacio.anaya89@gmail.com>",

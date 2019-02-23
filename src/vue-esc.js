@@ -1,14 +1,13 @@
 const vueEsc = {}
 
+vueEsc.cb = new Map() // key: HTMLElement, value: callback
+
 vueEsc.onEvent = function (event) {
   if (event.keyCode === 27) {
-    vueEsc.cb && vueEsc.cb(event)
+    for (const [element, cb] of vueEsc.cb.entries()) {
+      cb && cb.call(element, event)
+    }
   }
-}
-
-vueEsc.bind = function (el) {
-  vueEsc.onEventBound = vueEsc.onEvent.bind({ el })
-  document.addEventListener('keyup', vueEsc.onEventBound)
 }
 
 vueEsc.update = function (el, binding) {
@@ -16,11 +15,11 @@ vueEsc.update = function (el, binding) {
     throw new Error('Argument must be a function')
   }
 
-  vueEsc.cb = binding.value
+  vueEsc.cb.set(el, binding.value)
 }
 
-vueEsc.unbind = function () {
-  document.removeEventListener('keyup', vueEsc.onEventBound)
+vueEsc.unbind = function (el) {
+  vueEsc.cb.delete(el)
 }
 
 export default vueEsc

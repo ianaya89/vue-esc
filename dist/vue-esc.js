@@ -7,7 +7,7 @@
 		exports["vue-esc"] = factory();
 	else
 		root["vue-esc"] = factory();
-})(this, function() {
+})(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -43,18 +43,35 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -72,20 +89,42 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_esc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vue-esc */ "./src/vue-esc.js");
 
+var plugin = {
+  install: function install(Vue) {
+    Vue.directive('esc', _vue_esc__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (plugin);
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+/***/ }),
+
+/***/ "./src/vue-esc.js":
+/*!************************!*\
+  !*** ./src/vue-esc.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 var vueEsc = {};
 
 vueEsc.onEvent = function (event) {
@@ -95,7 +134,9 @@ vueEsc.onEvent = function (event) {
 };
 
 vueEsc.bind = function (el) {
-  vueEsc.onEventBound = vueEsc.onEvent.bind({ el: el });
+  vueEsc.onEventBound = vueEsc.onEvent.bind({
+    el: el
+  });
   document.addEventListener('keyup', vueEsc.onEventBound);
 };
 
@@ -111,35 +152,9 @@ vueEsc.unbind = function () {
   document.removeEventListener('keyup', vueEsc.onEventBound);
 };
 
-exports.default = vueEsc;
-module.exports = exports['default'];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _vueEsc = __webpack_require__(0);
-
-var _vueEsc2 = _interopRequireDefault(_vueEsc);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var plugin = {
-  install: function install(Vue) {
-    Vue.directive('esc', _vueEsc2.default);
-  }
-};
-
-exports.default = plugin;
-module.exports = exports['default'];
+/* harmony default export */ __webpack_exports__["default"] = (vueEsc);
 
 /***/ })
-/******/ ]);
+
+/******/ });
 });
